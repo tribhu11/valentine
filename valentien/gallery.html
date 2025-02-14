@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Gallery - Valentine Special</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Background Animation */
+        @keyframes animateBG {
+            0% {
+                background: #00173a;
+            }
+
+            50% {
+                background: #41001a;
+            }
+
+            100% {
+                background: #000000;
+            }
+        }
+
+        .animated-bg {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            animation: animateBG 4s ease-in-out infinite alternate;
+        }
+
+        .active {
+            padding: 7px 14px;
+            border-radius: 60px;
+            background: linear-gradient(to right, #1D4ED8, #BE185D);
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white min-h-screen overflow-x-hidden relative animated-bg">
+
+    <!-- Navbar -->
+    <nav
+        class="fixed items-center justify-center z-10 bottom-5 left-1/2 transform -translate-x-1/2 bg-black/40 mx-5 backdrop-blur-lg border-2 border-pink-500 rounded-full px-6 py-3 lg:w-4/3">
+        <ul class="flex items-center gap-4 justify-center">
+            <li>
+                <a href="index.html"
+                    class="flex items-center justify-center text-white p-3 rounded-full hover:bg-pink-500 transition">
+                    <i class="fas fa-home"></i> <span class="hidden md:inline"> Home</span>
+                </a>
+            </li>
+            <li><a href="journey.html"
+                    class="flex items-center justify-center text-white p-3 rounded-full hover:bg-pink-500 transition"><i
+                        class="fas fa-road"></i> <span class="hidden md:inline"> Journey</span></a></li>
+            <li><a href="gallery.html" class="active flex items-center justify-center gap-2 text-white "><i
+                        class="fas fa-photo-film"></i> <span> Gallery</span></a></li>
+            <li><a href="messages.html"
+                    class="flex items-center justify-center text-white p-3 rounded-full hover:bg-pink-500 transition"><i
+                        class="fas fa-envelope-open"></i> <span class="hidden md:inline"> Messages</span></a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header class="text-center mt-40">
+        <h2 class="text-5xl font-extrabold text-blue-300 drop-shadow-lg">Our Beautiful Memories</h2>
+        <p class="mt-4 text-lg text-gray-300">A collection of our most cherished moments.</p>
+    </header>
+
+    <!-- Gallery Section -->
+    <div class="container mx-auto mt-10 p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <img src="/valentien/img/Screenshot 2025-02-14 191311.png" alt="Memory 6" class="rounded-lg shadow-lg hover:scale-105 transition cursor-pointer"
+            onclick="openLightbox(this)">
+            <img src="/valentien/img/WhatsApp Image 2025-02-14 at 18.55.51_8a838037.jpg" alt="Memory 5" class="rounded-lg shadow-lg hover:scale-105 transition cursor-pointer"
+        onclick="openLightbox(this)">
+        
+            <img src="/valentien/img/WhatsApp Image 2025-02-14 at 18.46.34_4c56add8.jpg" alt="Memory 3" class="rounded-lg shadow-lg hover:scale-105 transition cursor-pointer"
+            onclick="openLightbox(this)">
+        <img src="/valentien/img/WhatsApp Image 2025-02-14 at 18.46.33_4fe856dc.jpg" alt="Memory 2" class="rounded-lg shadow-lg hover:scale-105 transition cursor-pointer"
+            onclick="openLightbox(this)">
+            <!-- <audio src="/valentien/img/Raindrops and Cozy Sweaters.mp3" autoplay loop class="hiddin"></audio> -->
+            <img src="/valentien/img/WhatsApp Image 2025-02-14 at 18.46.31_3dad0e2f.jpg" alt="Memory 1" class="rounded-lg shadow-lg hover:scale-105 transition cursor-pointer"
+            onclick="openLightbox(this)">
+            <video id="myVideo" src="/valentien/img/Snapchat-815333521.mp4" controls autoplay class="rounded-2xl"></video>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="fixed inset-0 bg-black/80 flex items-center justify-center hidden">
+        <span class="absolute top-5 right-10 text-3xl cursor-pointer text-white"
+            onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" class="max-w-full max-h-[80vh] rounded-lg">
+    </div>
+
+    <!-- Button Section -->
+    <div class="flex justify-center mt-20 mb-40">
+        <a href="messages.html"
+            class="bg-gradient-to-r from-blue-700 to-pink-700 px-6 py-3 font-bold rounded-full shadow-lg transition transform hover:scale-110">
+            Read My Messages <i class="fas fa-envelope-open ml-2"></i>
+        </a>
+    </div>
+
+    <script>
+        function openLightbox(img) {
+            document.getElementById("lightbox-img").src = img.src;
+            document.getElementById("lightbox").classList.remove("hidden");
+        }
+
+        function closeLightbox() {
+            document.getElementById("lightbox").classList.add("hidden");
+        }
+    </script>
+
+</body>
+
+</html>
